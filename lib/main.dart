@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:login_form_flutter/bloc/auth_bloc.dart';
+import 'package:login_form_flutter/login_screen.dart';
+import 'package:login_form_flutter/pallate.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const MyApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return BlocBuilder<AuthBloc, AuthState>(
+      builder: (context, state) {
+        return MaterialApp(
+          title: 'Flutter Demo',
+          theme: ThemeData.dark().copyWith(
+            scaffoldBackgroundColor: Pallete.backgroundColor,
+          ),
+          home: const LoginScreen(),
+        );
+      },
     );
   }
 }
