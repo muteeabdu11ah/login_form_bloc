@@ -11,8 +11,14 @@ final class AuthSucess extends AuthState {
   AuthSucess({required this.uid});
 }
 
+final class AuthLoading extends AuthState{
+
+}
+
 final class AuthFailure extends AuthState {
   final String error;
 
   AuthFailure({required this.error});
 }
+
+final class AuthEnded extends AuthState{}

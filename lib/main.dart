@@ -13,16 +13,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AuthBloc, AuthState>(
-      builder: (context, state) {
-        return MaterialApp(
-          title: 'Flutter Demo',
-          theme: ThemeData.dark().copyWith(
-            scaffoldBackgroundColor: Pallete.backgroundColor,
-          ),
-          home: const LoginScreen(),
-        );
-      },
+    return BlocProvider(
+      create: (context) => AuthBloc(),
+      child: BlocBuilder<AuthBloc, AuthState>(
+        builder: (context, state) {
+          return MaterialApp(
+            title: 'Flutter Demo',
+            theme: ThemeData.dark().copyWith(
+              scaffoldBackgroundColor: Pallete.backgroundColor,
+            ),
+            home: const LoginScreen(),
+          );
+        },
+      ),
     );
   }
 }

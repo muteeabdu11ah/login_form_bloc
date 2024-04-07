@@ -10,3 +10,4 @@ final class AuthLoginrequested extends AuthEvent {
   AuthLoginrequested({required this.Email, required this.Password});
 }
 
+final class AuthLogOutRequested extends AuthEvent{}
